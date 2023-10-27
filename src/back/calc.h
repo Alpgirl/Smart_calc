@@ -4,6 +4,8 @@
 #include <math.h>
 
 #include "to_polish.h"
+#include "parser.h"
+#include "stack.h"
 
 double calc(token *postfix, double var_value, int size);
 
