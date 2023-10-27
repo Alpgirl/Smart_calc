@@ -8,7 +8,8 @@ Guide how to build, run, and use in your applications.
 
 | command          | purpose                               |
 |-                 |-                                      |
-| make calc.a      | build static library calc.a           |
+| make [all]       | build library calc.a and run tests    |
+| make calc.a      | build library calc.a                  |
 | make test        | run unit tests                        |
 | make gcov_report | generate test coverage HTML report    |
 | make codestyle   | apply google codestyle in project     |
@@ -35,10 +36,11 @@ free(postfix);
 ```
 
 There are 3 main steps in calculating expression and 3 functions which provide these steps:
-
-- `token *parse_str(char *str, int *array_idx)` - parse input string expression;
-- `token *to_polish(token *infix_array, int length)` - transform parsed expression into reverse polish notation (RPN);
-- `double calc(token *postfix, double var_value, int size)` - evaluate RPN expression.
+|                                                            |                                                                 |
+|-                                                           |-                                                                |
+| `token *parse_str(char *str, int *array_idx)`              | parse input string expression                                   |
+| `token *to_polish(token *infix_array, int length)`         | transform parsed expression into reverse polish notation (RPN)  |
+| `double calc(token *postfix, double var_value, int size)`  | evaluate RPN expression                                         |
 
 In case of any error `calc()` returns _nan_.
 
@@ -80,5 +82,3 @@ Arithmetic expressions in infix notation support the following arithmetic operat
 | Computes square root | sqrt(x) |
 | Computes natural logarithm | ln(x) |
 | Computes common logarithm | log(x) |
-
-<!-- If variable 'x' specified in expression, `var_value` of `double calc(token *postfix, double var_value, int size)` -->
