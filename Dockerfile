@@ -5,19 +5,29 @@ FROM ubuntu:23.04
 LABEL version="1.0"
 LABEL description="This is custom Docker Image for gcc, check.h, lcov, and pkg-config."
 
+
+# LABEL about the custom image
+LABEL version="1.0"
+LABEL description="This is custom Docker Image for gcc, check.h, lcov, and pkg-config."
+
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Update Ubuntu Software repository
 RUN apt-get update
 
-# Install gcc, lcov, pkg-config, check library, and git
-RUN apt-get install -y gcc lcov pkg-config check git
+# Install gcc, lcov, pkg-config, check library, git, and make
+RUN apt-get install -y gcc lcov pkg-config check git make
 
 # Clone GitHub repository
 RUN git clone https://github.com/Alpgirl/Smart_calc.git
 
+# Change the working directory
+WORKDIR /Smart_calc/src
+
+# Run make run
+CMD ["make", "run"]
+
 
 # to build image enter command docker build -t smart_calc .
 # to run container enter command docker run -it smart_calc
-
