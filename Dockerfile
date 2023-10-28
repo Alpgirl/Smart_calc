@@ -25,4 +25,4 @@ CMD ["make", "run"]
 
 
 # to build image enter command docker build -t smart_calc .
-# to run container enter command docker run -it smart_calc
+# to run container enter command docker run -it --rm smart_calc
