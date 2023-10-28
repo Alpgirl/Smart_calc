@@ -5,11 +5,6 @@ FROM ubuntu:23.04
 LABEL version="1.0"
 LABEL description="This is custom Docker Image for gcc, check.h, lcov, and pkg-config."
 
-
-# LABEL about the custom image
-LABEL version="1.0"
-LABEL description="This is custom Docker Image for gcc, check.h, lcov, and pkg-config."
-
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
 
