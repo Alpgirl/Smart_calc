@@ -145,6 +145,7 @@ START_TEST(to_polish_test_6) {
   ck_assert_int_eq(postfix == NULL, 1);
 
   free(infix);
+  free(postfix);
 }
 END_TEST
 
@@ -156,6 +157,7 @@ START_TEST(to_polish_test_7) {
   ck_assert_int_eq(postfix == NULL, 1);
 
   free(infix);
+  free(postfix);
 }
 END_TEST
 

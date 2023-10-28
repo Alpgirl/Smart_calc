@@ -128,85 +128,49 @@ void check_number(char **number_str) {
 token parse_function_to_token(char **str, int *e_flag) {
   token parsed_function = {0};
   if (**str == '-') {
-    parsed_function.type = OPERATION;
-    parsed_function.code = MINUS;
-    parsed_function.priority = LOW;
-    parsed_function.associativity = LEFT;
+    make_function_token(&parsed_function, OPERATION, MINUS, LOW, LEFT);
     *(str) += 1;
   } else if (**str == '+') {
-    parsed_function.type = OPERATION;
-    parsed_function.code = PLUS;
-    parsed_function.priority = LOW;
-    parsed_function.associativity = LEFT;
+    make_function_token(&parsed_function, OPERATION, PLUS, LOW, LEFT);
     *(str) += 1;
   } else if (**str == '*') {
-    parsed_function.type = OPERATION;
-    parsed_function.code = MULT;
-    parsed_function.priority = MEDIUM;
-    parsed_function.associativity = LEFT;
+    make_function_token(&parsed_function, OPERATION, MULT, MEDIUM, LEFT);
     *(str) += 1;
   } else if (**str == '/') {
-    parsed_function.type = OPERATION;
-    parsed_function.code = DIV;
-    parsed_function.priority = MEDIUM;
-    parsed_function.associativity = LEFT;
+    make_function_token(&parsed_function, OPERATION, DIV, MEDIUM, LEFT);
     *(str) += 1;
   } else if (**str == '^') {
-    parsed_function.type = OPERATION;
-    parsed_function.code = POW;
-    parsed_function.priority = HIGH;
-    parsed_function.associativity = RIGHT;
+    make_function_token(&parsed_function, OPERATION, POW, HIGH, RIGHT);
     *(str) += 1;
   } else if (strstr(*str, "ln") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = LN;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, LN, HIGH, RIGHT);
     *(str) += 2;
   } else if (strstr(*str, "log") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = LOG;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, LOG, HIGH, RIGHT);
     *(str) += 3;
   } else if (strstr(*str, "mod") == *str) {
-    parsed_function.type = OPERATION;
-    parsed_function.code = MOD;
-    parsed_function.priority = MEDIUM;
-    parsed_function.associativity = LEFT;
+    make_function_token(&parsed_function, OPERATION, MOD, MEDIUM, LEFT);
     *(str) += 3;
   } else if (strstr(*str, "cos") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = COS;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, COS, HIGH, RIGHT);
     *(str) += 3;
   } else if (strstr(*str, "sin") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = SIN;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, SIN, HIGH, RIGHT);
     *(str) += 3;
   } else if (strstr(*str, "tan") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = TAN;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, TAN, HIGH, RIGHT);
     *(str) += 3;
   } else if (strstr(*str, "acos") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = ACOS;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, ACOS, HIGH, RIGHT);
     *(str) += 4;
   } else if (strstr(*str, "asin") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = ASIN;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, ASIN, HIGH, RIGHT);
     *(str) += 4;
   } else if (strstr(*str, "atan") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = ATAN;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, ATAN, HIGH, RIGHT);
     *(str) += 4;
   } else if (strstr(*str, "sqrt") == *str) {
-    parsed_function.type = FUNCTION;
-    parsed_function.code = SQRT;
-    parsed_function.priority = HIGH;  // ???
+    make_function_token(&parsed_function, FUNCTION, SQRT, HIGH, RIGHT);
     *(str) += 4;
   }
 
@@ -215,6 +179,13 @@ token parse_function_to_token(char **str, int *e_flag) {
   }
 
   return parsed_function;
+}
+
+void make_function_token(token *function, int type, int code, int priority, int associativity) {
+  function->type = type;
+  function->code = code;
+  function->priority = priority;
+  function->associativity = associativity;
 }
 
 void mark_unary(token *func, int array_idx, token *token_array) {
