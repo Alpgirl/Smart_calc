@@ -21,7 +21,6 @@ RUN git clone https://github.com/Alpgirl/Smart_calc.git
 WORKDIR /Smart_calc/src
 
 RUN ./prereqs.sh
-
 CMD ./test.sh && ./build.sh run
 
 # to build image enter command "docker build -t smart_calc ."
