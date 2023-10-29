@@ -9,13 +9,16 @@ LABEL description="This is custom Docker Image for gcc, check.h, lcov, and pkg-c
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Update Ubuntu Software repository
-RUN apt-get update
+RUN apt update
 
 # Install gcc, lcov, pkg-config, check library, git, and make
-RUN apt-get install -y gcc lcov pkg-config check git make
+RUN apt install -y lcov pkg-config
 
 # Clone GitHub repository
 RUN git clone https://github.com/Alpgirl/Smart_calc.git
+
+# 
+COPY 
 
 # Change the working directory
 WORKDIR /Smart_calc/src
