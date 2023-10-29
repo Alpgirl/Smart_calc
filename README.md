@@ -82,3 +82,18 @@ Arithmetic expressions in infix notation support the following arithmetic operat
 | Computes square root | sqrt(x) |
 | Computes natural logarithm | ln(x) |
 | Computes common logarithm | log(x) |
+
+
+## Development instructions
+
+The source code was decomposed into following logical blocks:
+
+- `parser.c` - all functions with parsing purpose.
+- `to_polish.c` - functions which are used while parsing input expression into RPN.
+- `calc.c` - evaluating an RPN expression.
+- `stack.c` - simplified implementation of stack. Simplification is based on limitation max input expression length on 255 symbols.
+
+Ideas for modification the project:
+1. modification of stack that provides processing longer expressions;
+1. make more detailed output in case of error occured. In current implementation only _nan_ is returned as the result. 
+  
