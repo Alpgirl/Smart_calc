@@ -2,7 +2,7 @@
 
 # Update the package list
 apt update
-apt -y install make cmake git clang gcc lcov pkg-config check
+apt -y install make cmake git clang gcc
 
 # Make a dir for gtest installation
 mkdir /home/googletest
