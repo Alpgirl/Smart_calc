@@ -1,26 +1,46 @@
 name: Workflow
 
-on: 
-  push
-  
-
+on:
+    push
 jobs:
-  launch:
-    runs-on: ubuntu-latest
+    image-builder:
+        name: Checkout prerequisites and build image
+        runs-on: self-hosted
+        steps:
+            -
+                name: Checkout current repo
+                uses: actions/checkout@v3
+            -
+                name: Use the provided Dockerfile to build an image
+                run: docker build -t smart_calc .
+            -
+                name: List docker images
+                run: docker images
+    image-runner:
+        name: Run the image (jobname)
+        runs-on: self-hosted
+        needs: image-builder
+        steps:
+            -
+                name: Run the image (stepname)
+                run: docker run -it smart_calc
 
-    steps:
-    - name: checkout current repo
-      uses: actions/checkout@v3
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       -
+#         name: Checkout
+#         uses: actions/checkout@v4
+#       -
+#         name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
+#       -
+#         name: Build and push
+#         uses: docker/build-push-action@v5
+#         with:
+#           context: .
+#           file: ./Dockerfile
+#           push: true
+#           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
 
-    - name: launch prereqs.sh
-      run: bash src/prereqs.sh
-      
-    - name: launch build.sh
-      run: ./build.sh run
-      working-directory: ./src
-      shell: bash
-      
-    - name: launsh test.sh
-      run: ./test.sh
-      working-directory: ./src
-      shell: bash
