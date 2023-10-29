@@ -12,7 +12,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update
 
 # Install gcc, lcov, pkg-config, check library, git, and make
-RUN apt-get install -y lcov pkg-config check git make cmake gcc clang
+RUN apt-get install -y lcov pkg-config check git make cmake gcc g++ clang
 
 # Clone GitHub repository
 RUN git clone https://github.com/Alpgirl/Smart_calc.git
