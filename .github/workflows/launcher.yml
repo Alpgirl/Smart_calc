@@ -1,0 +1,22 @@
+name: Workflow
+
+on: 
+  push
+  
+
+jobs:
+  launch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout current repo
+      uses: actions/checkout@v3
+
+    - name: launch prereqs.sh
+      run: bash ./prereqs.sh
+      
+    - name: launch build.sh
+      run: bash ./build.sh
+      
+    - name: launsh test.sh
+      run: bash ./test.sh
