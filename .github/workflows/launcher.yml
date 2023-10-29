@@ -5,7 +5,7 @@ on:
 jobs:
     image-builder:
         name: Checkout prerequisites and build image
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         steps:
             -
                 name: Checkout current repo
@@ -18,7 +18,7 @@ jobs:
                 run: docker images
     image-runner:
         name: Run the image (jobname)
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         needs: image-builder
         steps:
             -
