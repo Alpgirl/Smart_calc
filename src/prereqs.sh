@@ -12,6 +12,8 @@ cd /home/googletest/googletest_build
 # Install the libgtest-dev package
 apt-get install libgtest-dev -y
 
+sudo apt-get install check
+
 # Navigate to the gtest source directory
 cd /usr/src/googletest/googletest
 
