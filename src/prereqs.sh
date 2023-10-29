@@ -1,10 +1,6 @@
 #!/bin/bash
 
 
-# Update the package list
-apt update
-apt -y install make cmake git clang gcc g++
-
 # Make a dir for gtest installation
 mkdir /home/googletest
 mkdir /home/googletest/googletest_build
