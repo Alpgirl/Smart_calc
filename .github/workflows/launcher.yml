@@ -16,14 +16,11 @@ jobs:
             -
                 name: List docker images
                 run: docker images
-    image-runner:
-        name: Run the image (jobname)
-        runs-on: ubuntu-latest
-        needs: image-builder
-        steps:
-            -
+
+            - 
                 name: Run the image (stepname)
-                run: docker run smart_calc
+                run: docker run -it smart_calc
+ 
 
 # jobs:
 #   build:
