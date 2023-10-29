@@ -3,7 +3,7 @@ CXX=g++
 
 SRC_BACK_DIR = back
 TEST_DIR = gtest
-GTEST_DIR = /home/georgy/googletest/googletest/googletest/googletest
+GTEST_DIR = /home/googletest/googletest/googletest/
 GTEST_DIR_SRC = $(GTEST_DIR)/src
 
 SRC_BACK := $(shell find ${SRC_BACK_DIR} -name "*.c" | sed -e 's/\.\///')
