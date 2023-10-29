@@ -17,7 +17,7 @@ jobs:
       
     - name: launch build.sh
       run: |
-        chmod +x build.sh
+        chmod +x src/build.sh
         bash src/build.sh all
       
     - name: launsh test.sh
