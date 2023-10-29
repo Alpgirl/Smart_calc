@@ -23,7 +23,7 @@ jobs:
         steps:
             -
                 name: Run the image (stepname)
-                run: docker run -it smart_calc
+                run: docker run smart_calc
 
 # jobs:
 #   build:
