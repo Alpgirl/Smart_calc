@@ -14,7 +14,7 @@ function display_usage {
 # Check if the target is provided as an argument
 if [ "$#" -ne 1 ]; then
     display_usage
-    make all
+    exit 1
 fi
 
 # Check the target and execute the corresponding command
