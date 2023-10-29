@@ -21,4 +21,6 @@ jobs:
       shell: bash
       
     - name: launsh test.sh
-      run: bash src/test.sh
+      run: ./test.sh
+      working-directory: ./src
+      shell: bash
