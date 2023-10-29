@@ -12,7 +12,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 
 # Install gcc, lcov, pkg-config, check library, git, and make
-RUN apt-get install -y gcc lcov pkg-config check git make
+RUN apt-get install -y lcov pkg-config check git make cmake gcc clang
 
 # Clone GitHub repository
 RUN git clone https://github.com/Alpgirl/Smart_calc.git
@@ -20,9 +20,10 @@ RUN git clone https://github.com/Alpgirl/Smart_calc.git
 # Change the working directory
 WORKDIR /Smart_calc/src
 
-# Run make run
-CMD ["make", "run"]
+RUN ./prereqs.sh
+CMD ["./test.sh"]
+CMD ["./build.sh", "run"]
 
 
-# to build image enter command docker build -t smart_calc .
-# to run container enter command docker run -it --rm smart_calc
+# to build image enter command "docker build -t smart_calc ."
+# to run container enter command "docker run -it smart_calc"
