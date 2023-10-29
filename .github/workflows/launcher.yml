@@ -13,10 +13,10 @@ jobs:
       uses: actions/checkout@v3
 
     - name: launch prereqs.sh
-      run: bash ./prereqs.sh
+      run: bash src/prereqs.sh
       
     - name: launch build.sh
-      run: bash ./build.sh
+      run: bash src/build.sh
       
     - name: launsh test.sh
-      run: bash ./test.sh
+      run: bash src/test.sh
