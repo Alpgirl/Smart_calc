@@ -6,6 +6,8 @@ sudo apt-get update
 # Install the libgtest-dev package
 sudo apt-get install libgtest-dev -y
 
+sudo apt-get install check
+
 # Navigate to the gtest source directory
 cd /usr/src/googletest/googletest
 
