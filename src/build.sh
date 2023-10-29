@@ -29,7 +29,6 @@ case "$1" in
         ;;
     "test")
         # Run unit tests
-        display_usage
         make test
         ;;
     "gcov_report")
