@@ -23,6 +23,6 @@ jobs:
             -
                 name: Execute scripts and log output
                 run: |
-                    docker exec my_container /bin/bash -c "./test.sh"
-                    docker exec my_container /bin/bash -c "./build.sh run"
+                    docker exec smart_calc_container /bin/bash -c "./test.sh"
+                    docker exec smart_calc_container /bin/bash -c "./build.sh run"
  
