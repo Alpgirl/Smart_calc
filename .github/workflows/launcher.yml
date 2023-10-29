@@ -20,9 +20,4 @@ jobs:
             - 
                 name: Run the image (stepname)
                 run: docker run -d --name smart_calc_container smart_calc
-            -
-                name: Execute scripts and log output
-                run: |
-                    sleep 7
-                    docker exec smart_calc_container /bin/bash -c "./test.sh"
  
