@@ -16,9 +16,11 @@ jobs:
       run: bash src/prereqs.sh
       
     - name: launch build.sh
-      run: ./build.sh all
+      run: ./build.sh run
       working-directory: ./src
       shell: bash
       
     - name: launsh test.sh
-      run: bash src/test.sh
+      run: ./test.sh
+      working-directory: ./src
+      shell: bash
