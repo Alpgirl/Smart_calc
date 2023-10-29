@@ -16,7 +16,7 @@ jobs:
       run: bash src/prereqs.sh
       
     - name: launch build.sh
-      run: src/build.sh run
+      run: src/build.sh
       shell: bash
       
     - name: launsh test.sh
