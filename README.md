@@ -10,12 +10,54 @@ Guide how to build, run, and use in your applications.
 
 To launch the application there are 3 shell scripts given: prereqs.sh, build.sh and test.sh.
 
-Prereqs.sh:     installs GoogleTest library to provide tests for the application. \
-Build.sh:       builds the project and launches it. \
-Test.sh:        launches the tests.
+|                |                                                                        |
+| -              | -                                                                      |
+| Prereqs.sh     | installs GoogleTest library to provide tests for the application       |
+| Build.sh       | builds the project and launches it                                     |
+| Test.sh        | launches the tests                                                     |
 
-You can launch everything inside docker container using Dockerfile by COMMAND.
-It will set up the developing environment inside the container, run prereqs.sh, then build.sh, test.sh and eventually exit the container and delete it.
+The application can be installed with Docker:
+- Install Doker Desktop;
+- Open terminal and type `docker` to check if Docker is installed;
+- Type in terminal `docker build -t smart_calc .` to build a Docker image named 'smart_calc';
+- To run the application enter `docker run -it smart_calc` (or add a flag `--rm` to delete the container after running it);
+- Enter the expression which you want to calculate.
+
+### Supported syntax
+
+Arithmetic expressions in infix notation support the following arithmetic operations and mathematical functions:
+
+- **Arithmetic operators**:
+
+
+| Operator name  | Infix notation<br /> (Classic) |
+| ---------------- | -------------------------------- |
+| Brackets       | (a + b)                        |
+| Addition       | a + b                          |
+| Subtraction    | a - b                          |
+| Multiplication | a * b                          |
+| Division       | a / b                          |
+| Power          | a ^ b                          |
+| Modulus        | a mod b                        |
+| Unary plus     | +a                             |
+| Unary minus    | -a                             |
+
+- **Functions**:
+
+
+| Function description       | Function |
+| ---------------------------- | ---------- |
+| Computes cosine            | cos(x)   |
+| Computes sine              | sin(x)   |
+| Computes tangent           | tan(x)   |
+| Computes arc cosine        | acos(x)  |
+| Computes arc sine          | asin(x)  |
+| Computes arc tangent       | atan(x)  |
+| Computes square root       | sqrt(x)  |
+| Computes natural logarithm | ln(x)    |
+| Computes common logarithm  | log(x)   |
+
+
 
 ## For developers
 
@@ -34,13 +76,11 @@ As for {target}, there are options below:
 
 
 | command   | purpose                               |
-| ----------- | --------------------------------------- |
+| --------- | ------------------------------------- |
 | calc.a    | build library calc.a                  |
 | codestyle | apply google codestyle in project     |
 | clean     | clean build files                     |
-| run       | build and run command line calculator |
-
-### Launching 
+| run       | build and run command line calculator | 
 
 ### Include in other applications
 
@@ -80,39 +120,6 @@ To build your application with _calc.a_ library you have to:
 3. build your program with `calc.a` as src file, e.g. `gcc <your_program> calc.a`
    (on some systems `-lm` flag should also be specified)
 
-### Supported syntax
-
-Arithmetic expressions in infix notation support the following arithmetic operations and mathematical functions:
-
-- **Arithmetic operators**:
-
-
-| Operator name  | Infix notation<br /> (Classic) |
-| ---------------- | -------------------------------- |
-| Brackets       | (a + b)                        |
-| Addition       | a + b                          |
-| Subtraction    | a - b                          |
-| Multiplication | a * b                          |
-| Division       | a / b                          |
-| Power          | a ^ b                          |
-| Modulus        | a mod b                        |
-| Unary plus     | +a                             |
-| Unary minus    | -a                             |
-
-- **Functions**:
-
-
-| Function description       | Function |
-| ---------------------------- | ---------- |
-| Computes cosine            | cos(x)   |
-| Computes sine              | sin(x)   |
-| Computes tangent           | tan(x)   |
-| Computes arc cosine        | acos(x)  |
-| Computes arc sine          | asin(x)  |
-| Computes arc tangent       | atan(x)  |
-| Computes square root       | sqrt(x)  |
-| Computes natural logarithm | ln(x)    |
-| Computes common logarithm  | log(x)   |
 
 ## Development instructions
 
