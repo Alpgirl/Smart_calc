@@ -11,8 +11,8 @@ Guide how to build, run, and use in your applications.
 | make [all]       | build library calc.a and run tests    |
 | make calc.a      | build library calc.a                  |
 | make test        | run unit tests                        |
-| make gcov_report | generate test coverage HTML report    |
 | make codestyle   | apply google codestyle in project     |
+| make clean       | clean build files                     |
 | make run         | build and run command line calculator |
 
 ### Include in other applications

@@ -6,8 +6,8 @@ function display_usage {
     echo "  all: Build the library (calc.a) and run tests"
     echo "  calc.a: Build the library (calc.a)"
     echo "  test: Run unit tests"
-    echo "  gcov_report: Generate test coverage HTML report"
     echo "  codestyle: Apply Google code style to the project"
+    echo "  clean: Clean build files"
     echo "  run: Build and run the command line calculator"
 }
 
@@ -31,13 +31,13 @@ case "$1" in
         # Run unit tests
         make test
         ;;
-    "gcov_report")
-        # Generate test coverage HTML report
-        make gcov_report
-        ;;
     "codestyle")
         # Apply Google code style to the project
         make codestyle
+        ;;
+    "clean")
+        # Clean build files
+        make clean
         ;;
     "run")
         # Build and run the command line calculator

@@ -181,7 +181,8 @@ token parse_function_to_token(char **str, int *e_flag) {
   return parsed_function;
 }
 
-void make_function_token(token *function, int type, int code, int priority, int associativity) {
+void make_function_token(token *function, int type, int code, int priority,
+                         int associativity) {
   function->type = type;
   function->code = code;
   function->priority = priority;
