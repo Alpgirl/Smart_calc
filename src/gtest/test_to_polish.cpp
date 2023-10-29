@@ -6,7 +6,9 @@ extern "C" {
 
 TEST(ToPolishTest0, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("3-2", &size);
+  char expr[] = "3-2";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix[0].type, NUMBER);
@@ -26,7 +28,9 @@ TEST(ToPolishTest0, ToPolishCheck) {
 
 TEST(ToPolishTest1, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("3*2^1", &size);
+  char expr[] = "3*2^1";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix[0].type, NUMBER);
@@ -50,7 +54,9 @@ TEST(ToPolishTest1, ToPolishCheck) {
 
 TEST(ToPolishTest2, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("3/2/1", &size);
+  char expr[] = "3/2/1";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix[0].type, NUMBER);
@@ -74,7 +80,9 @@ TEST(ToPolishTest2, ToPolishCheck) {
 
 TEST(ToPolishTest3, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("sin(3^2)", &size);
+  char expr[] = "sin(3^2)";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix[0].type, NUMBER);
@@ -95,7 +103,9 @@ TEST(ToPolishTest3, ToPolishCheck) {
 
 TEST(ToPolishTest4, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("sin(sin(3))", &size);
+  char expr[] = "sin(sin(3))";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix[0].type, NUMBER);
@@ -113,7 +123,9 @@ TEST(ToPolishTest4, ToPolishCheck) {
 
 TEST(ToPolishTest5, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("(3*2)^1", &size);
+  char expr[] = "(3*2)^1";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix[0].type, NUMBER);
@@ -137,7 +149,9 @@ TEST(ToPolishTest5, ToPolishCheck) {
 
 TEST(ToPolishTest6, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("3-2)", &size);
+  char expr[] = "3-2)";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix == nullptr, 1);
@@ -148,7 +162,9 @@ TEST(ToPolishTest6, ToPolishCheck) {
 
 TEST(ToPolishTest7, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("(3-2*4^sin(6)", &size);
+  char expr[] = "(3-2*4^sin(6)";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix == nullptr, 1);
@@ -159,7 +175,9 @@ TEST(ToPolishTest7, ToPolishCheck) {
 
 TEST(ToPolishTest8, ToPolishCheck) {
   int size = 0;
-  token *infix = parse_str("log10 * 3", &size);
+  char expr[] = "log10 * 3";
+
+  token *infix = parse_str(expr, &size);
   token *postfix = to_polish(infix, size);
 
   EXPECT_EQ(postfix[0].type, NUMBER);
