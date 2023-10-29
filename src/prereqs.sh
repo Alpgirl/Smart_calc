@@ -9,6 +9,7 @@ cd /home/googletest
 git clone https://github.com/google/googletest
 
 sudo apt-get install check
+sudo apt-get install libgtest-dev
 
 cd googletest_build
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/home/googletest ../googletest
